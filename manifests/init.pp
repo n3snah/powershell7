@@ -14,11 +14,11 @@
 # @example
 #   include powershell7
 class powershell7 (
-  Stdlib::Absolutepath $download_dir                     = 'C:\\Windows\\Temp',
-  Integer[0,1] $add_explorer_context_menu_openpowershell = 1,
-  Integer[0,1] $add_file_context_menu_runpowershell      = 1,
-  Integer[0,1] $enable_psremoting                        = 1,
-  Integer[0,1] $register_manifest                        = 1,
+  Stdlib::Absolutepath $download_dir,
+  Integer[0,1] $add_explorer_context_menu_openpowershell,
+  Integer[0,1] $add_file_context_menu_runpowershell,
+  Integer[0,1] $enable_psremoting,
+  Integer[0,1] $register_manifest,
 ) {
   contain powershell7::install
 }
