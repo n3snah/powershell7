@@ -7,7 +7,7 @@
 # @api private
 #
 class powershell7::install {
-  $download_dir = $powershell7::download_dir
+  $download_dir = 'C:\\Windows\\Temp'
   $file_name = 'PowerShell-7.1.3-win-x64.msi'
 
   file { 'powershell7-download':
@@ -17,7 +17,7 @@ class powershell7::install {
   }
 
   exec { 'powershell7-install':
-    command => "C:\\Windows\System32\\msiexec.exe /package ${download_dir}\\${file_name} /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=${powershell7::add_explorer_context_menu_openpowershell} ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=${powershell7::add_file_context_menu_runpowershell} ENABLE_PSREMOTING=${powershell7::enable_psremoting} REGISTER_MANIFEST=${powershell7::register_manifest}",
+    command => "C:\\Windows\System32\\msiexec.exe /package ${download_dir}\\${file_name} /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1",
     creates => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
     require => File['powershell7-download'],
   }
