@@ -8,9 +8,9 @@ This module has been developed to manage the installation of PowerShell 7.
 1. [Setup - The basics of getting started with powershell7](#setup)
     * [Beginning with powershell7](#beginning-with-powershell7)
 1. [Usage - Configuration options and additional functionality](#usage)
-    * [Install and Enable PowerShell 7] (#install-and-enable-powershell-7)
-    * [Disable Context Menu Options] (#disable-context-menu-options)
-    * [Disable PS Remoting] (#disable-ps-remoting)
+    * [Install and Enable PowerShell 7](#install-and-enable-powershell-7)
+    * [Disable Context Menu Options](#disable-context-menu-options)
+    * [Disable PS Remoting](#disable-ps-remoting)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
