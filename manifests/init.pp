@@ -15,6 +15,13 @@
 #   include powershell7
 class powershell7 (
   Stdlib::Absolutepath $download_dir,
+  String $lts_file_name,
+  Stdlib::HTTPSUrl $lts_source_url,
+  String $stable_file_name,
+  Stdlib::HTTPSUrl $stable_source_url,
+  String $preview_file_name,
+  Stdlib::HTTPSUrl $preview_source_url,
+  ENUM['lts','stable','preview'] $release_type,
   Integer[0,1] $add_explorer_context_menu_openpowershell,
   Integer[0,1] $add_file_context_menu_runpowershell,
   Integer[0,1] $enable_psremoting,
