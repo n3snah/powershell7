@@ -1,1 +1,6 @@
---- {}
+---
+powershell7::add_explorer_context_menu_openpowershell: 1
+powershell7::add_file_context_menu_runpowershell: 1
+powershell7::enable_psremoting: 1
+powershell7::register_manifest: 1
+powershell7::release_type: 'stable'
