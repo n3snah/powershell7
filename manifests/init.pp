@@ -6,10 +6,29 @@
 # to install PowerShell 7
 #
 # @param download_dir
+#   The directory where the downloaded installer is placed.
+# @param lts_file_name
+#   The name of the LTS PowerShell installer
+# @param lts_source_url
+#   The internet URL for the LTS Powershell Download
+# @param stable_file_name
+#   The name of the Stable PowerShell installer
+# @param stable_source_url
+#   The internet URL for the Stable Powershell Download
+# @param preview_file_name
+#   The name of the Preview PowerShell installer
+# @param preview_source_url
+#   The internet URL for the Preview Powershell Download
+# @param release_type
+#   Defines which PowerShell release type to be installed. Defaults to stable
 # @param add_explorer_context_menu_openpowershell
+#   Adds a context menu item for explorer and will open a PowerShell window at the current location. Defaults to 1
 # @param add_file_context_menu_runpowershell
+#   Adds a context menu item to run the selected file in PowerShell. Defaults to 1
 # @param enable_psremoting
+#   Enables PS Remoting during installation. Defaults to 1
 # @param register_manifest
+#   Enables the Windows Event Logging Manifest. Defaults to 1
 #
 # @example
 #   include powershell7
