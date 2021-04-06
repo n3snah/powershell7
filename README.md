@@ -1,4 +1,5 @@
 # powershell7
+[![Build Status](https://travis-ci.com/n3snah/powershell7.svg?branch=master)](https://travis-ci.com/n3snah/powershell7)
 
 This module has been developed to manage the installation of PowerShell 7.
 

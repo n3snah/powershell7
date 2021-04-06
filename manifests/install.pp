@@ -39,7 +39,7 @@ class powershell7::install {
   }
 
   exec { 'powershell7-install':
-    command => "C:\\Windows\System32\\msiexec.exe /package ${download_dir}\\${file_name} /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=${explorer_context_menu} ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=${file_context_menu} ENABLE_PSREMOTING=${enable_psremoting} REGISTER_MANIFEST=${register_manifest}",
+    command => "C:\\Windows\\System32\\msiexec.exe /package ${download_dir}\\${file_name} /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=${explorer_context_menu} ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=${file_context_menu} ENABLE_PSREMOTING=${enable_psremoting} REGISTER_MANIFEST=${register_manifest}", # lint:ignore:140chars
     creates => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
     require => File['powershell7-download'],
   }
