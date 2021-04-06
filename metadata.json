@@ -5,6 +5,7 @@
   "summary": "Puppet Module to manage Powershell 7",
   "license": "Apache-2.0",
   "source": "https://github.com/n3snah/powershell7",
+  "issues_url": "https://github.com/n3snah/powershell7/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
