@@ -6,4 +6,9 @@
 # @api private
 #
 class powershell7::config {
+  registry_value { 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK':
+    ensure => present,
+    type   => string,
+    data   => 'Default',
+  }
 }
