@@ -37,7 +37,7 @@ describe 'powershell7', type: :class do
             # rubocop:disable LineLength
             'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.0.6-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
             # rubocop:enable LineLength
-            'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+            'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
             'require' => 'File[powershell7-download]',
           )
         end
@@ -56,7 +56,7 @@ describe 'powershell7', type: :class do
               # rubocop:disable LineLength
               'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.0.6-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=0 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
               # rubocop:enable LineLength
-              'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+              'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
               'require' => 'File[powershell7-download]',
             )
           end
@@ -76,7 +76,7 @@ describe 'powershell7', type: :class do
               # rubocop:disable LineLength
               'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.0.6-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=0 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
               # rubocop:enable LineLength
-              'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+              'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
               'require' => 'File[powershell7-download]',
             )
           end
@@ -96,7 +96,7 @@ describe 'powershell7', type: :class do
               # rubocop:disable LineLength
               'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.0.6-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1',
               # rubocop:enable LineLength
-              'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+              'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
               'require' => 'File[powershell7-download]',
             )
           end
@@ -116,7 +116,7 @@ describe 'powershell7', type: :class do
               # rubocop:disable LineLength
               'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.0.6-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=0',
               # rubocop:enable LineLength
-              'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+              'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
               'require' => 'File[powershell7-download]',
             )
           end
@@ -143,7 +143,7 @@ describe 'powershell7', type: :class do
             # rubocop:disable LineLength
             'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.1.3-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
             # rubocop:enable LineLength
-            'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+            'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
             'require' => 'File[powershell7-download]',
           )
         end
@@ -169,7 +169,7 @@ describe 'powershell7', type: :class do
             # rubocop:disable LineLength
             'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.2.0-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
             # rubocop:enable LineLength
-            'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
+            'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
             'require' => 'File[powershell7-download]',
           )
         end
