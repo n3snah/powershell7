@@ -13,6 +13,10 @@ describe 'powershell7', type: :class do
         is_expected.to contain_class('powershell7::install')
       end
 
+      it do
+        is_expected.to contain_class('powershell7::config')
+      end
+
       context 'with defaults and release_type => stable' do
         let :params do
           {
@@ -168,6 +172,45 @@ describe 'powershell7', type: :class do
             'creates' => 'C:\\Program Files\\PowerShell\\7\\powershell.exe',
             'require' => 'File[powershell7-download]',
           )
+        end
+      end
+
+      context 'with powershell_updatecheck => Default' do
+        let :params do
+          {
+            powershell_updatecheck: 'Default',
+          }
+        end
+
+        it do
+          is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
+            .with_data('Default')
+        end
+      end
+
+      context 'with powershell_updatecheck => Off' do
+        let :params do
+          {
+            powershell_updatecheck: 'Off',
+          }
+        end
+
+        it do
+          is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
+            .with_data('Off')
+        end
+      end
+
+      context 'with powershell_updatecheck => LTS' do
+        let :params do
+          {
+            powershell_updatecheck: 'LTS',
+          }
+        end
+
+        it do
+          is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
+            .with_data('LTS')
         end
       end
     end

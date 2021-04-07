@@ -29,6 +29,7 @@
 #   Enables PS Remoting during installation. Defaults to 1
 # @param register_manifest
 #   Enables the Windows Event Logging Manifest. Defaults to 1
+# @param powershell_updatecheck Sets the update notification policy to alert users to the availability of updates. Defaults to 'Default'
 #
 # @example
 #   include powershell7
@@ -45,6 +46,11 @@ class powershell7 (
   Integer[0,1] $add_file_context_menu_runpowershell,
   Integer[0,1] $enable_psremoting,
   Integer[0,1] $register_manifest,
+  ENUM['Off','Default','LTS'] $powershell_updatecheck,
 ) {
   contain powershell7::install
+  contain powershell7::config
+
+  Class['::powershell7::install']
+  -> Class['::powershell7::config']
 }

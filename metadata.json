@@ -10,6 +10,10 @@
     {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.13.1 < 8.0.0"
+    },
+    {
+      "name": "puppetlabs/registry",
+      "version_requirement": ">= 3.0.0 < 5.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -26,7 +30,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 6.21.0 < 8.0.0"
+      "version_requirement": ">= 6.0.0 < 8.0.0"
     }
   ],
   "pdk-version": "2.0.0",

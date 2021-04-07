@@ -4,3 +4,4 @@ powershell7::add_file_context_menu_runpowershell: 1
 powershell7::enable_psremoting: 1
 powershell7::register_manifest: 1
 powershell7::release_type: 'stable'
+powershell7::powershell_updatecheck: 'Default'
