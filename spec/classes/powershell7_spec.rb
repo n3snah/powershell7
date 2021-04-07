@@ -174,6 +174,45 @@ describe 'powershell7', type: :class do
           )
         end
       end
+
+      context 'with powershell_updatecheck => Default' do
+        let :params do
+          {
+            powershell_updatecheck: 'Default',
+          }
+        end
+
+        it do
+          is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
+            .with_data('Default')
+        end
+      end
+
+      context 'with powershell_updatecheck => Off' do
+        let :params do
+          {
+            powershell_updatecheck: 'Off',
+          }
+        end
+
+        it do
+          is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
+            .with_data('Off')
+        end
+      end
+
+      context 'with powershell_updatecheck => LTS' do
+        let :params do
+          {
+            powershell_updatecheck: 'LTS',
+          }
+        end
+
+        it do
+          is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
+            .with_data('LTS')
+        end
+      end
     end
   end
 end
