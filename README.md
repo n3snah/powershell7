@@ -53,6 +53,16 @@ class { 'powershell7':
 }
 ```
 
+### Change Update Notification Settings
+PowerShell 7 added a new feature to alert users when a newer version of the PowerShell
+application is available. This can be configured to `Off`, `Default` or `LTS`.
+The notification doesn't provide any capabilities to update PowerShell but just to notify only.
+```
+class { 'powershell7':
+  'powershell_updatecheck' => 'LTS,
+}
+```
+
 ## Limitations
 
 Currently this has only been designed and tested for Windows. PowerShell 7 on

@@ -5,6 +5,7 @@
   "summary": "Puppet Module to manage Powershell 7",
   "license": "Apache-2.0",
   "source": "https://github.com/n3snah/powershell7",
+  "project_page": "https://github.com/n3snah/powershell7",
   "issues_url": "https://github.com/n3snah/powershell7/issues",
   "dependencies": [
     {
@@ -36,5 +37,10 @@
   "pdk-version": "2.0.0",
   "template-url": "pdk-default#2.0.0",
   "template-ref": "tags/2.0.0-0-ge838f1d",
-  "tags": ["powershell","powershell7","wsman","psremoting"]
+  "tags": [
+    "powershell",
+    "powershell7",
+    "wsman",
+    "psremoting"
+  ]
 }
