@@ -47,4 +47,8 @@ class powershell7 (
   Integer[0,1] $register_manifest,
 ) {
   contain powershell7::install
+  contain powershell7::config
+
+  Class['::powershell7::install']
+  -> Class['::powershell7::config']
 }

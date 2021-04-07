@@ -13,6 +13,10 @@ describe 'powershell7', type: :class do
         is_expected.to contain_class('powershell7::install')
       end
 
+      it do
+        is_expected.to contain_class('powershell7::config')
+      end
+
       context 'with defaults and release_type => stable' do
         let :params do
           {
