@@ -12,6 +12,7 @@ This module has been developed to manage the installation of PowerShell 7.
     * [Install and Enable PowerShell 7](#install-and-enable-powershell-7)
     * [Disable Context Menu Options](#disable-context-menu-options)
     * [Disable PS Remoting](#disable-ps-remoting)
+    * [Change Update Notification Settings](#change-update-notification-settings)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
