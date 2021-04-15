@@ -19,7 +19,7 @@ describe 'powershell7', type: :class do
         is_expected.to contain_class('powershell7::config')
       end
 
-      context 'with defaults and release_type => stable' do
+      context 'with defaults and release_type => lts' do
         let :params do
           {
             release_type: 'lts',
@@ -151,6 +151,61 @@ describe 'powershell7', type: :class do
         end
       end
 
+      context 'with defaults and os_letter => D and release_type => stable' do
+        let :params do
+          {
+            os_letter: 'D',
+            release_type: 'stable',
+          }
+        end
+
+        it do
+          is_expected.to contain_file('powershell7-download').with(
+            'ensure' => 'file',
+            'path' => 'C:\\Windows\\Temp\\PowerShell-7.1.3-win-x64.msi',
+            'source' => 'https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/PowerShell-7.1.3-win-x64.msi',
+          )
+        end
+
+        it do
+          is_expected.to contain_exec('powershell7-install').with(
+            # rubocop:disable LineLength
+            'command' => 'D:\\Windows\\System32\\msiexec.exe /package C:\\Windows\\Temp\\PowerShell-7.1.3-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
+            # rubocop:enable LineLength
+            'creates' => 'D:\\Program Files\\PowerShell\\7\\pwsh.exe',
+            'require' => 'File[powershell7-download]',
+          )
+        end
+      end
+
+      context 'with defaults and os_letter => D and download_dir set with D and release_type => stable' do
+        let :params do
+          {
+            os_letter: 'D',
+            download_dir: 'D:\\Windows\\Temp',
+            release_type: 'stable',
+          }
+        end
+
+        it do
+          is_expected.to contain_file('powershell7-download').with(
+            'ensure' => 'file',
+            'path' => 'D:\\Windows\\Temp\\PowerShell-7.1.3-win-x64.msi',
+            'source' => 'https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/PowerShell-7.1.3-win-x64.msi',
+          )
+        end
+
+        it do
+          is_expected.to contain_exec('powershell7-install').with(
+            # rubocop:disable LineLength
+            'command' => 'D:\\Windows\\System32\\msiexec.exe /package D:\\Windows\\Temp\\PowerShell-7.1.3-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
+            # rubocop:enable LineLength
+            'creates' => 'D:\\Program Files\\PowerShell\\7\\pwsh.exe',
+            'require' => 'File[powershell7-download]',
+          )
+        end
+      end
+
       context 'with defaults and release_type => preview' do
         let :params do
           {
@@ -213,6 +268,33 @@ describe 'powershell7', type: :class do
         it do
           is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')
             .with_data('LTS')
+        end
+      end
+
+      context 'with defaults and download_dir set differently' do
+        let :params do
+          {
+            download_dir: 'C:\\Downloads',
+            release_type: 'stable',
+          }
+        end
+
+        it do
+          is_expected.to contain_file('powershell7-download').with(
+            'ensure' => 'file',
+            'path' => 'C:\\Downloads\\PowerShell-7.1.3-win-x64.msi',
+            'source' => 'https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/PowerShell-7.1.3-win-x64.msi',
+          )
+        end
+
+        it do
+          is_expected.to contain_exec('powershell7-install').with(
+            # rubocop:disable LineLength
+            'command' => 'C:\\Windows\\System32\\msiexec.exe /package C:\\Downloads\\PowerShell-7.1.3-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1',
+            # rubocop:enable LineLength
+            'creates' => 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
+            'require' => 'File[powershell7-download]',
+          )
         end
       end
     end
