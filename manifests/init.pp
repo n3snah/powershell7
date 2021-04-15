@@ -5,6 +5,8 @@
 # This class declares all module parameters and calls the necessary classes
 # to install PowerShell 7
 #
+# @param os_letter
+#   The Letter of the disk which has the Windows folder. Defaults to C
 # @param download_dir
 #   The directory where the downloaded installer is placed.
 # @param lts_file_name
@@ -34,6 +36,7 @@
 # @example
 #   include powershell7
 class powershell7 (
+  Pattern[/^[A-Z]$/] $os_letter,
   Stdlib::Absolutepath $download_dir,
   String $lts_file_name,
   Stdlib::HTTPUrl $lts_source_url,
