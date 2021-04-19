@@ -16,6 +16,10 @@ describe 'powershell7::config' do
           .with_type('string')
           .with_data('Default')
       end
+
+      it do
+        is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1').with_ensure('file')
+      end
     end
   end
 end

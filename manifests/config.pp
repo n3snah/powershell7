@@ -11,4 +11,10 @@ class powershell7::config {
     type   => string,
     data   => $powershell7::powershell_updatecheck,
   }
+
+  # All Users, Current Host profile
+  file { 'C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1':
+    ensure  => file,
+    content => epp('powershell7/Microsoft.PowerShell_profile.ps1.epp'),
+  }
 }
