@@ -69,6 +69,9 @@ class { 'powershell7':
 Currently this has only been designed and tested for Windows. PowerShell 7 on
 Linux is not yet supported in this module.
 
+Due to using the Stdlib::Absolutepath and the way that the code is structured. You cannot have `download_dir` set to `C:\`.
+This would cause the path to end up something like `C:\\file.msi` which wouldn't be a valid windows path.
+
 ## Development
 
 If you would like to contribute to this module. Fork me on github, make your

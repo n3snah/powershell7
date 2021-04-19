@@ -36,6 +36,7 @@ include powershell7
 
 The following parameters are available in the `powershell7` class:
 
+* [`os_letter`](#os_letter)
 * [`download_dir`](#download_dir)
 * [`lts_file_name`](#lts_file_name)
 * [`lts_source_url`](#lts_source_url)
@@ -49,6 +50,12 @@ The following parameters are available in the `powershell7` class:
 * [`enable_psremoting`](#enable_psremoting)
 * [`register_manifest`](#register_manifest)
 * [`powershell_updatecheck`](#powershell_updatecheck)
+
+##### <a name="os_letter"></a>`os_letter`
+
+Data type: `Pattern[/^[A-Z]$/]`
+
+The Letter of the disk which has the Windows folder. Defaults to C
 
 ##### <a name="download_dir"></a>`download_dir`
 
