@@ -213,6 +213,58 @@ describe 'powershell7', type: :class do
             .with_data('LTS')
         end
       end
+
+      context 'with config_windowWidth => 200' do
+        let :params do
+          {
+            config_windowWidth: 200,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(/\$WindowSize\.width=200/)
+        end
+      end
+
+      context 'with config_windowHeight => 198' do
+        let :params do
+          {
+            config_windowHeight: 198,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(/\$WindowSize\.height=198/)
+        end
+      end
+
+      context 'with config_bufferWidth => 345' do
+        let :params do
+          {
+            config_bufferWidth: 345,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(/\$BufferSize\.width=345/)
+        end
+      end
+
+      context 'with config_bufferHeight => 6543' do
+        let :params do
+          {
+            config_bufferHeight: 6543,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(/\$BufferSize\.height=6543/)
+        end
+      end
     end
   end
 end

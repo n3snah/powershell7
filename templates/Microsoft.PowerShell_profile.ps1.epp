@@ -1,15 +1,20 @@
+<%- | Integer $windowWidth,
+      Integer $windowHeight,
+      Integer $bufferWidth,
+      Integer $bufferHeight,
+    | -%>
 <#
     This file is managed by Puppet! Any local modifications
     will be overriden on the next puppet agent run.
 #>
 $Shell = $Host.UI.RawUI
-$size = $Shell.WindowSize
-$size.width=120
-$size.height=30
-$Shell.WindowSize = $size
-$size = $Shell.BufferSize
-$size.width=120
-$size.height=9001
-$Shell.BufferSize = $size
+$WindowSize = $Shell.WindowSize
+$WindowSize.width=<%= $windowWidth %>
+$WindowSize.height=<%= $windowHeight %>
+$Shell.WindowSize = $WindowSize
+$BufferSize = $Shell.BufferSize
+$BufferSize.width=<%= $bufferWidth %>
+$BufferSize.height=<%= $bufferHeight %>
+$Shell.BufferSize = $BufferSize
 $shell.BackgroundColor = “Black”
 $shell.ForegroundColor = “White”

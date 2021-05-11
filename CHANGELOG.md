@@ -5,11 +5,14 @@ All notable changes to this project will be documented in this file.
 ## Release 0.3.0 (Unreleased)
 
 **Features**
-Added: New file REFERENCE.md which is viewable on the forge.
-Added: New file LICENSE which displays the apache 2.0 module license agreement.
-Added: New files for Github issue templates.
+- Added: New file REFERENCE.md which is viewable on the forge.
+- Added: New file LICENSE which displays the apache 2.0 module license agreement.
+- Added: New files for Github issue templates.
+- Added: Generated Puppet Strings Documentation
+- Added: New configuration capability to manage PowerShell Profile settings (All Users, Current Host)
 
 **Bugfixes**
+- fixed: Removed hardcoded Windows paths from powershell7::install exec resource
 
 ## Release 0.2.0 (2021/04/07)
 

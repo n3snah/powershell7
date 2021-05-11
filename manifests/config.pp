@@ -15,6 +15,11 @@ class powershell7::config {
   # All Users, Current Host profile
   file { 'C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1':
     ensure  => file,
-    content => epp('powershell7/Microsoft.PowerShell_profile.ps1.epp'),
+    content => epp('powershell7/Microsoft.PowerShell_profile.ps1.epp', {
+      'windowWidth'  => $powershell7::config_windowWidth,
+      'windowHeight' => $powershell7::config_windowHeight,
+      'bufferWidth'  => $powershell7::config_bufferWidth,
+      'bufferHeight' => $powershell7::config_bufferHeight,
+    }),
   }
 }

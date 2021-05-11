@@ -5,3 +5,7 @@ powershell7::enable_psremoting: 1
 powershell7::register_manifest: 1
 powershell7::release_type: 'stable'
 powershell7::powershell_updatecheck: 'Default'
+powershell7::config_windowWidth: 120
+powershell7::config_windowHeight: 30
+powershell7::config_bufferWidth: 120
+powershell7::config_bufferHeight: 9001
