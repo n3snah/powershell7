@@ -214,81 +214,81 @@ describe 'powershell7', type: :class do
         end
       end
 
-      context 'with config_windowWidth => 200' do
+      context 'with config_window_width => 200' do
         let :params do
           {
-            config_windowWidth: 200,
+            config_window_width: 200,
           }
         end
 
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(/\$WindowSize\.width=200/)
+            .with_content(%r{\$WindowSize\.width=200})
         end
       end
 
-      context 'with config_windowHeight => 198' do
+      context 'with config_window_height => 198' do
         let :params do
           {
-            config_windowHeight: 198,
+            config_window_height: 198,
           }
         end
 
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(/\$WindowSize\.height=198/)
+            .with_content(%r{\$WindowSize\.height=198})
         end
       end
 
-      context 'with config_bufferWidth => 345' do
+      context 'with config_buffer_width => 345' do
         let :params do
           {
-            config_bufferWidth: 345,
+            config_buffer_width: 345,
           }
         end
 
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(/\$BufferSize\.width=345/)
+            .with_content(%r{\$BufferSize\.width=345})
         end
       end
 
-      context 'with config_bufferHeight => 6543' do
+      context 'with config_buffer_height => 6543' do
         let :params do
           {
-            config_bufferHeight: 6543,
+            config_buffer_height: 6543,
           }
         end
 
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(/\$BufferSize\.height=6543/)
+            .with_content(%r{\$BufferSize\.height=6543})
         end
       end
 
-      context 'with config_backgroundColor => "Blue"' do
+      context 'with config_background_color => "Blue"' do
         let :params do
           {
-            config_backgroundColor: "Blue"
+            config_background_color: 'Blue'
           }
         end
 
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(/\$shell\.BackgroundColor = \"Blue\"/)
+            .with_content(%r{\$shell\.BackgroundColor = \"Blue\"})
         end
       end
 
-      context 'with config_foregroundColor => "Yellow"' do
+      context 'with config_foreground_color => "Yellow"' do
         let :params do
           {
-            config_foregroundColor: "Yellow"
+            config_foreground_color: 'Yellow'
           }
         end
 
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(/\$shell\.ForegroundColor = \"Yellow\"/)
+            .with_content(%r{\$shell\.ForegroundColor = \"Yellow\"})
         end
       end
     end

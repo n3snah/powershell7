@@ -1,9 +1,9 @@
-<%- | Integer $windowWidth,
-      Integer $windowHeight,
-      Integer $bufferWidth,
-      Integer $bufferHeight,
-      String $backgroundColor,
-      String $foregroundColor,
+<%- | Integer $window_width,
+      Integer $window_height,
+      Integer $buffer_width,
+      Integer $buffer_height,
+      String $background_color,
+      String $foreground_color,
     | -%>
 <#
     This file is managed by Puppet! Any local modifications
@@ -11,12 +11,12 @@
 #>
 $Shell = $Host.UI.RawUI
 $WindowSize = $Shell.WindowSize
-$WindowSize.width=<%= $windowWidth %>
-$WindowSize.height=<%= $windowHeight %>
+$WindowSize.width=<%= $window_width %>
+$WindowSize.height=<%= $window_height %>
 $Shell.WindowSize = $WindowSize
 $BufferSize = $Shell.BufferSize
-$BufferSize.width=<%= $bufferWidth %>
-$BufferSize.height=<%= $bufferHeight %>
+$BufferSize.width=<%= $buffer_width %>
+$BufferSize.height=<%= $buffer_height %>
 $Shell.BufferSize = $BufferSize
-$shell.BackgroundColor = "<%= $backgroundColor %>"
-$shell.ForegroundColor = "<%= $foregroundColor %>"
+$shell.BackgroundColor = "<%= $background_color %>"
+$shell.ForegroundColor = "<%= $foreground_color %>"

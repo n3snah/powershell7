@@ -16,12 +16,12 @@ class powershell7::config {
   file { 'C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1':
     ensure  => file,
     content => epp('powershell7/Microsoft.PowerShell_profile.ps1.epp', {
-      'windowWidth'     => $powershell7::config_windowWidth,
-      'windowHeight'    => $powershell7::config_windowHeight,
-      'bufferWidth'     => $powershell7::config_bufferWidth,
-      'bufferHeight'    => $powershell7::config_bufferHeight,
-      'backgroundColor' => $powershell7::config_backgroundColor,
-      'foregroundColor' => $powershell7::config_foregroundColor,
+      'window_width'     => $powershell7::config_window_width,
+      'window_height'    => $powershell7::config_window_height,
+      'buffer_width'     => $powershell7::config_buffer_width,
+      'buffer_height'    => $powershell7::config_buffer_height,
+      'background_color' => $powershell7::config_background_color,
+      'foreground_color' => $powershell7::config_foreground_color,
     }),
   }
 }

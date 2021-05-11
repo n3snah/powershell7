@@ -5,9 +5,9 @@ powershell7::enable_psremoting: 1
 powershell7::register_manifest: 1
 powershell7::release_type: 'stable'
 powershell7::powershell_updatecheck: 'Default'
-powershell7::config_windowWidth: 120
-powershell7::config_windowHeight: 30
-powershell7::config_bufferWidth: 120
-powershell7::config_bufferHeight: 9001
-powershell7::config_backgroundColor: "Black"
-powershell7::config_foregroundColor: "White"
+powershell7::config_window_width: 120
+powershell7::config_window_height: 30
+powershell7::config_buffer_width: 120
+powershell7::config_buffer_height: 9001
+powershell7::config_background_color: 'Black'
+powershell7::config_foreground_color: 'White'

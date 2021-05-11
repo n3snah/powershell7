@@ -47,12 +47,12 @@ class powershell7 (
   Integer[0,1] $enable_psremoting,
   Integer[0,1] $register_manifest,
   ENUM['Off','Default','LTS'] $powershell_updatecheck,
-  Integer $config_windowWidth,
-  Integer $config_windowHeight,
-  Integer $config_bufferWidth,
-  Integer $config_bufferHeight,
-  String $config_backgroundColor,
-  String $config_foregroundColor,
+  Integer $config_window_width,
+  Integer $config_window_height,
+  Integer $config_buffer_width,
+  Integer $config_buffer_height,
+  String $config_background_color,
+  String $config_foreground_color,
 
 ) {
   contain powershell7::install
