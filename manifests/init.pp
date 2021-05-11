@@ -42,8 +42,24 @@
 # @param config_foreground_color
 #   Sets the color of the foreground text color. Defaults to 'White'
 #
-# @example
+# @example Basic usage
 #   include powershell7
+#
+# @example Configuring window defaults
+#   class { 'powershell7':
+#     config_window_width     => 400,
+#     config_window_height    => 60,
+#     config_buffer_height    => 6000,
+#     config_background_color => 'Blue',
+#     config_foreground_color => 'White',
+#   }
+#
+# @example Using a different download location and version of the installer
+#   class {
+#     lts_file_name  => 'PowerShell-7.0.6-win-x64.msi',
+#     lts_source_url => 'https://myserver.internal.com/PowerShell/PowerShell-7.0.6-win-x64.msi',
+#   }
+#
 class powershell7 (
   Stdlib::Absolutepath $download_dir,
   String $lts_file_name,
