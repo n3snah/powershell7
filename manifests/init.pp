@@ -29,7 +29,18 @@
 #   Enables PS Remoting during installation. Defaults to 1
 # @param register_manifest
 #   Enables the Windows Event Logging Manifest. Defaults to 1
-# @param powershell_updatecheck Sets the update notification policy to alert users to the availability of updates. Defaults to 'Default'
+# @param powershell_updatecheck
+#   Sets the update notification policy to alert users to the availability of updates. Defaults to 'Default'
+# @param config_window_width
+#   Sets the width of the PowerShell window. This also needs to set the Buffer width also as they can't be different. Defaults to 120
+# @param config_window_height
+#   Sets the height of the PowerShell window. Defaults to 30
+# @param config_buffer_height
+#   Sets how far you can vertically scroll the window to see previous commands and output. Defaults to 9001
+# @param config_background_color
+#   Sets the color of the window behind the text. Defaults to 'Black'
+# @param config_foreground_color
+#   Sets the color of the foreground text color. Defaults to 'White'
 #
 # @example
 #   include powershell7
@@ -49,7 +60,6 @@ class powershell7 (
   ENUM['Off','Default','LTS'] $powershell_updatecheck,
   Integer $config_window_width,
   Integer $config_window_height,
-  Integer $config_buffer_width,
   Integer $config_buffer_height,
   String $config_background_color,
   String $config_foreground_color,

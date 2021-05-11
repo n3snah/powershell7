@@ -225,6 +225,11 @@ describe 'powershell7', type: :class do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
             .with_content(%r{\$WindowSize\.width=200})
         end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$BufferSize\.width=200})
+        end
       end
 
       context 'with config_window_height => 198' do
@@ -237,19 +242,6 @@ describe 'powershell7', type: :class do
         it do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
             .with_content(%r{\$WindowSize\.height=198})
-        end
-      end
-
-      context 'with config_buffer_width => 345' do
-        let :params do
-          {
-            config_buffer_width: 345,
-          }
-        end
-
-        it do
-          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
-            .with_content(%r{\$BufferSize\.width=345})
         end
       end
 

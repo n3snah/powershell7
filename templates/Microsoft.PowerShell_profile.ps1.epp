@@ -1,6 +1,5 @@
 <%- | Integer $window_width,
       Integer $window_height,
-      Integer $buffer_width,
       Integer $buffer_height,
       String $background_color,
       String $foreground_color,
@@ -15,7 +14,7 @@ $WindowSize.width=<%= $window_width %>
 $WindowSize.height=<%= $window_height %>
 $Shell.WindowSize = $WindowSize
 $BufferSize = $Shell.BufferSize
-$BufferSize.width=<%= $buffer_width %>
+$BufferSize.width=<%= $window_width %>
 $BufferSize.height=<%= $buffer_height %>
 $Shell.BufferSize = $BufferSize
 $shell.BackgroundColor = "<%= $background_color %>"

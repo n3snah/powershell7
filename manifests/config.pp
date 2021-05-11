@@ -18,7 +18,6 @@ class powershell7::config {
     content => epp('powershell7/Microsoft.PowerShell_profile.ps1.epp', {
       'window_width'     => $powershell7::config_window_width,
       'window_height'    => $powershell7::config_window_height,
-      'buffer_width'     => $powershell7::config_buffer_width,
       'buffer_height'    => $powershell7::config_buffer_height,
       'background_color' => $powershell7::config_background_color,
       'foreground_color' => $powershell7::config_foreground_color,
