@@ -2,6 +2,8 @@
       Integer $windowHeight,
       Integer $bufferWidth,
       Integer $bufferHeight,
+      String $backgroundColor,
+      String $foregroundColor,
     | -%>
 <#
     This file is managed by Puppet! Any local modifications
@@ -16,5 +18,5 @@ $BufferSize = $Shell.BufferSize
 $BufferSize.width=<%= $bufferWidth %>
 $BufferSize.height=<%= $bufferHeight %>
 $Shell.BufferSize = $BufferSize
-$shell.BackgroundColor = “Black”
-$shell.ForegroundColor = “White”
+$shell.BackgroundColor = "<%= $backgroundColor %>"
+$shell.ForegroundColor = "<%= $foregroundColor %>"

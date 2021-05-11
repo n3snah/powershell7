@@ -9,3 +9,5 @@ powershell7::config_windowWidth: 120
 powershell7::config_windowHeight: 30
 powershell7::config_bufferWidth: 120
 powershell7::config_bufferHeight: 9001
+powershell7::config_backgroundColor: "Black"
+powershell7::config_foregroundColor: "White"

@@ -51,6 +51,8 @@ class powershell7 (
   Integer $config_windowHeight,
   Integer $config_bufferWidth,
   Integer $config_bufferHeight,
+  String $config_backgroundColor,
+  String $config_foregroundColor,
 
 ) {
   contain powershell7::install

@@ -40,6 +40,16 @@ describe 'powershell7::config' do
         is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
           .with_content(/\$BufferSize\.height=9001/)
       end
+
+      it do
+        is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+          .with_content(/\$shell\.BackgroundColor = \"Black\"/)
+      end
+
+      it do
+        is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+          .with_content(/\$shell\.ForegroundColor = \"White\"/)
+      end
     end
   end
 end

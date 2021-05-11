@@ -265,6 +265,32 @@ describe 'powershell7', type: :class do
             .with_content(/\$BufferSize\.height=6543/)
         end
       end
+
+      context 'with config_backgroundColor => "Blue"' do
+        let :params do
+          {
+            config_backgroundColor: "Blue"
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(/\$shell\.BackgroundColor = \"Blue\"/)
+        end
+      end
+
+      context 'with config_foregroundColor => "Yellow"' do
+        let :params do
+          {
+            config_foregroundColor: "Yellow"
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(/\$shell\.ForegroundColor = \"Yellow\"/)
+        end
+      end
     end
   end
 end
