@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Release 0.3.0 (Unreleased)
+## Release 0.3.0
 
 **Features**
 - Added: New file REFERENCE.md which is viewable on the forge.
