@@ -1,4 +1,5 @@
 ---
+powershell7::os_letter: 'C'
 powershell7::download_dir: 'C:\Windows\Temp'
 powershell7::lts_file_name: 'PowerShell-7.0.6-win-x64.msi'
 powershell7::lts_source_url: 'https://github.com/PowerShell/PowerShell/releases/download/v7.0.6/PowerShell-7.0.6-win-x64.msi'
