@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Added: New files for Github issue templates.
 - Added: Generated Puppet Strings Documentation
 - Added: New configuration capability to manage PowerShell Profile settings (All Users, Current Host)
+- Added: New Data Type Alias `Powershell7::Windowcolor` to restrict Window Background/Foreground to specific colors
 
 **Bugfixes**
 - fixed: Removed hardcoded Windows paths from powershell7::install exec resource
