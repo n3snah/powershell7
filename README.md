@@ -44,7 +44,7 @@ include powershell7
 ```
 class { 'powershell7':
   'add_explorer_context_menu_openpowershell' => 0,
-  'add_file_context_menu_runpowershell' => 0,
+  'add_file_context_menu_runpowershell'      => 0,
 }
 ```
 
@@ -72,9 +72,9 @@ With PowerShell, the buffer width must be equal to the same size as the window w
 option available to change this setting and will always be set to the same size.
 ```
 class { 'powershell7':
-  'config_window_width' => 400,
-  'config_window_height' => 60,
-  'config_buffer_height' => 7000,
+  'config_window_width'    => 400,
+  'config_window_height'   => 60,
+  'config_buffer_height'   => 7000,
   'config_background_color => 'Blue',
   'config_foreground_color => 'White',
 }
