@@ -80,6 +80,24 @@ class { 'powershell7':
 }
 ```
 
+### PowerShell Window Colors
+PowerShell 7 only allows certain colors for the background and the foreground. This is the list of acceptable colors.
+* Black
+* DarkBlue
+* DarkGreen
+* DarkCyan
+* DarkRed
+* DarkMagenta
+* DarkYellow
+* Gray
+* Blue
+* Green
+* Cyan
+* Red
+* Magenta
+* Yellow
+* White
+
 ## Limitations
 
 Currently this has only been designed and tested for Windows. PowerShell 7 on

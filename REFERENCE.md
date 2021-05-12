@@ -15,6 +15,11 @@
 * `powershell7::config`: Configuration options for Powershell 7 once installed
 * `powershell7::install`: Install Powershell 7
 
+### Data types
+
+* [`Powershell7::Windowcolor`](#powershell7windowcolor): Creates a new type alias which ensures that the PowerShell Background/Foreground
+colors are limited to those that are supported by the application.
+
 ## Classes
 
 ### <a name="powershell7"></a>`powershell7`
@@ -174,12 +179,24 @@ Sets how far you can vertically scroll the window to see previous commands and o
 
 ##### <a name="config_background_color"></a>`config_background_color`
 
-Data type: `String`
+Data type: `Powershell7::Windowcolor`
 
 Sets the color of the window behind the text. Defaults to 'Black'
 
 ##### <a name="config_foreground_color"></a>`config_foreground_color`
 
-Data type: `String`
+Data type: `Powershell7::Windowcolor`
 
 Sets the color of the foreground text color. Defaults to 'White'
+
+## Data types
+
+### <a name="powershell7windowcolor"></a>`Powershell7::Windowcolor`
+
+Powershell7::Windowcolor
+
+Alias of
+
+```puppet
+Enum['Black', 'DarkBlue', 'DarkGreen', 'DarkCyan', 'DarkRed', 'DarkMagenta', 'DarkYellow', 'Gray', 'Blue', 'Green', 'Cyan', 'Red', 'Magenta', 'Yellow', 'White']
+```
