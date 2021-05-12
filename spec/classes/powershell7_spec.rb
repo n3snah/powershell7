@@ -297,6 +297,124 @@ describe 'powershell7', type: :class do
           )
         end
       end
+
+      context 'with config_window_width => 200' do
+        let :params do
+          {
+            config_window_width: 200,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$WindowSize\.width=200})
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$BufferSize\.width=200})
+        end
+      end
+
+      context 'with config_window_height => 198' do
+        let :params do
+          {
+            config_window_height: 198,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$WindowSize\.height=198})
+        end
+      end
+
+      context 'with config_buffer_height => 6543' do
+        let :params do
+          {
+            config_buffer_height: 6543,
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$BufferSize\.height=6543})
+        end
+      end
+
+      context 'with config_background_color => "Blue"' do
+        let :params do
+          {
+            config_background_color: 'Blue'
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$shell\.BackgroundColor = \"Blue\"})
+        end
+      end
+
+      context 'with_config_background_color => "Purple"' do
+        let :params do
+          {
+            config_background_color: 'Purple'
+          }
+        end
+
+        it do
+          is_expected.not_to compile
+        end
+      end
+
+      context 'with_config_background_color => "black" (lowercase)' do
+        let :params do
+          {
+            config_background_color: 'black'
+          }
+        end
+
+        it do
+          is_expected.not_to compile
+        end
+      end
+
+      context 'with config_foreground_color => "Yellow"' do
+        let :params do
+          {
+            config_foreground_color: 'Yellow'
+          }
+        end
+
+        it do
+          is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
+            .with_content(%r{\$shell\.ForegroundColor = \"Yellow\"})
+        end
+      end
+
+      context 'with config_foreground_color => "Purple"' do
+        let :params do
+          {
+            config_foreground_color: 'Purple'
+          }
+        end
+
+        it do
+          is_expected.not_to compile
+        end
+      end
+
+      context 'with_config_foreground_color => "black" (lowercase)' do
+        let :params do
+          {
+            config_foreground_color: 'black'
+          }
+        end
+
+        it do
+          is_expected.not_to compile
+        end
+      end
     end
   end
 end

@@ -15,6 +15,11 @@
 * `powershell7::config`: Configuration options for Powershell 7 once installed
 * `powershell7::install`: Install Powershell 7
 
+### Data types
+
+* [`Powershell7::Windowcolor`](#powershell7windowcolor): Creates a new type alias which ensures that the PowerShell Background/Foreground
+colors are limited to those that are supported by the application.
+
 ## Classes
 
 ### <a name="powershell7"></a>`powershell7`
@@ -26,10 +31,31 @@ to install PowerShell 7
 
 #### Examples
 
-#####
+##### Basic usage
 
 ```puppet
 include powershell7
+```
+
+##### Configuring window defaults
+
+```puppet
+class { 'powershell7':
+  config_window_width     => 400,
+  config_window_height    => 60,
+  config_buffer_height    => 6000,
+  config_background_color => 'Blue',
+  config_foreground_color => 'White',
+}
+```
+
+##### Using a different download location and version of the installer
+
+```puppet
+class {
+  lts_file_name  => 'PowerShell-7.0.6-win-x64.msi',
+  lts_source_url => 'https://myserver.internal.com/PowerShell/PowerShell-7.0.6-win-x64.msi',
+}
 ```
 
 #### Parameters
@@ -50,6 +76,11 @@ The following parameters are available in the `powershell7` class:
 * [`enable_psremoting`](#enable_psremoting)
 * [`register_manifest`](#register_manifest)
 * [`powershell_updatecheck`](#powershell_updatecheck)
+* [`config_window_width`](#config_window_width)
+* [`config_window_height`](#config_window_height)
+* [`config_buffer_height`](#config_buffer_height)
+* [`config_background_color`](#config_background_color)
+* [`config_foreground_color`](#config_foreground_color)
 
 ##### <a name="os_letter"></a>`os_letter`
 
@@ -134,3 +165,45 @@ Enables the Windows Event Logging Manifest. Defaults to 1
 Data type: `ENUM['Off','Default','LTS']`
 
 Sets the update notification policy to alert users to the availability of updates. Defaults to 'Default'
+
+##### <a name="config_window_width"></a>`config_window_width`
+
+Data type: `Integer`
+
+Sets the width of the PowerShell window. This also needs to set the Buffer width also as they can't be different. Defaults to 120
+
+##### <a name="config_window_height"></a>`config_window_height`
+
+Data type: `Integer`
+
+Sets the height of the PowerShell window. Defaults to 30
+
+##### <a name="config_buffer_height"></a>`config_buffer_height`
+
+Data type: `Integer`
+
+Sets how far you can vertically scroll the window to see previous commands and output. Defaults to 9001
+
+##### <a name="config_background_color"></a>`config_background_color`
+
+Data type: `Powershell7::Windowcolor`
+
+Sets the color of the window behind the text. Defaults to 'Black'
+
+##### <a name="config_foreground_color"></a>`config_foreground_color`
+
+Data type: `Powershell7::Windowcolor`
+
+Sets the color of the foreground text color. Defaults to 'White'
+
+## Data types
+
+### <a name="powershell7windowcolor"></a>`Powershell7::Windowcolor`
+
+Powershell7::Windowcolor
+
+Alias of
+
+```puppet
+Enum['Black', 'DarkBlue', 'DarkGreen', 'DarkCyan', 'DarkRed', 'DarkMagenta', 'DarkYellow', 'Gray', 'Blue', 'Green', 'Cyan', 'Red', 'Magenta', 'Yellow', 'White']
+```

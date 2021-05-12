@@ -1,0 +1,21 @@
+<%- | Integer $window_width,
+      Integer $window_height,
+      Integer $buffer_height,
+      String $background_color,
+      String $foreground_color,
+    | -%>
+<#
+    This file is managed by Puppet! Any local modifications
+    will be overriden on the next puppet agent run.
+#>
+$Shell = $Host.UI.RawUI
+$WindowSize = $Shell.WindowSize
+$WindowSize.width=<%= $window_width %>
+$WindowSize.height=<%= $window_height %>
+$Shell.WindowSize = $WindowSize
+$BufferSize = $Shell.BufferSize
+$BufferSize.width=<%= $window_width %>
+$BufferSize.height=<%= $buffer_height %>
+$Shell.BufferSize = $BufferSize
+$shell.BackgroundColor = "<%= $background_color %>"
+$shell.ForegroundColor = "<%= $foreground_color %>"
