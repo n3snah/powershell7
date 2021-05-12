@@ -12,6 +12,8 @@ This module has been developed to manage the installation of PowerShell 7.
     * [Install and Enable PowerShell 7](#install-and-enable-powershell-7)
     * [Disable Context Menu Options](#disable-context-menu-options)
     * [Disable PS Remoting](#disable-ps-remoting)
+    * [Change Update Notification Settings](#change-update-notification-settings)
+    * [Configuring PowerShell Window Settings](#configuring-powerShell-window-settings)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
@@ -42,7 +44,7 @@ include powershell7
 ```
 class { 'powershell7':
   'add_explorer_context_menu_openpowershell' => 0,
-  'add_file_context_menu_runpowershell' => 0,
+  'add_file_context_menu_runpowershell'      => 0,
 }
 ```
 
@@ -59,14 +61,50 @@ application is available. This can be configured to `Off`, `Default` or `LTS`.
 The notification doesn't provide any capabilities to update PowerShell but just to notify only.
 ```
 class { 'powershell7':
-  'powershell_updatecheck' => 'LTS,
+  'powershell_updatecheck' => 'LTS',
 }
 ```
+
+### Configuring PowerShell Window Settings
+Default PowerShell 7 window behaviour can now be customized which includes changing the size of the
+window along with also changing the buffer size and even the background/foreground color.
+With PowerShell, the buffer width must be equal to the same size as the window width so there is no
+option available to change this setting and will always be set to the same size.
+```
+class { 'powershell7':
+  'config_window_width'    => 400,
+  'config_window_height'   => 60,
+  'config_buffer_height'   => 7000,
+  'config_background_color => 'Blue',
+  'config_foreground_color => 'White',
+}
+```
+
+### PowerShell Window Colors
+PowerShell 7 only allows certain colors for the background and the foreground. This is the list of acceptable colors.
+* Black
+* DarkBlue
+* DarkGreen
+* DarkCyan
+* DarkRed
+* DarkMagenta
+* DarkYellow
+* Gray
+* Blue
+* Green
+* Cyan
+* Red
+* Magenta
+* Yellow
+* White
 
 ## Limitations
 
 Currently this has only been designed and tested for Windows. PowerShell 7 on
 Linux is not yet supported in this module.
+
+Due to using the Stdlib::Absolutepath and the way that the code is structured. You cannot have `download_dir` set to `C:\`.
+This would cause the path to end up something like `C:\\file.msi` which wouldn't be a valid windows path.
 
 ## Development
 

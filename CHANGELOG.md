@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## Release 0.2.0
+## Release 0.3.0
+
+**Features**
+- Added: New file REFERENCE.md which is viewable on the forge.
+- Added: New file LICENSE which displays the apache 2.0 module license agreement.
+- Added: New files for Github issue templates.
+- Added: Generated Puppet Strings Documentation
+- Added: New configuration capability to manage PowerShell Profile settings (All Users, Current Host)
+- Added: New Data Type Alias `Powershell7::Windowcolor` to restrict Window Background/Foreground to specific colors
+
+**Bugfixes**
+- fixed: Removed hardcoded Windows paths from powershell7::install exec resource
+
+## Release 0.2.0 (2021/04/07)
 
 **Features**
 - Added: able to set the notification policy for Powershell 7 Update checks.
@@ -13,7 +26,7 @@ All notable changes to this project will be documented in this file.
 - Fix: installation source URLs now allow HTTP as well has HTTPS locations.
 - Fix: supported version of puppet was lowered to `6.0.0` as it works across all Puppet 6 versions.
 
-## Release 0.1.0
+## Release 0.1.0 (2021/04/06)
 
 **Features**
 - Added: Able to install PowerShell 7 on Windows Server (2012 R2, 2016, 2019)

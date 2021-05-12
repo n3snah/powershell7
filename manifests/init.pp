@@ -5,6 +5,8 @@
 # This class declares all module parameters and calls the necessary classes
 # to install PowerShell 7
 #
+# @param os_letter
+#   The Letter of the disk which has the Windows folder. Defaults to C
 # @param download_dir
 #   The directory where the downloaded installer is placed.
 # @param lts_file_name
@@ -29,11 +31,39 @@
 #   Enables PS Remoting during installation. Defaults to 1
 # @param register_manifest
 #   Enables the Windows Event Logging Manifest. Defaults to 1
-# @param powershell_updatecheck Sets the update notification policy to alert users to the availability of updates. Defaults to 'Default'
+# @param powershell_updatecheck
+#   Sets the update notification policy to alert users to the availability of updates. Defaults to 'Default'
+# @param config_window_width
+#   Sets the width of the PowerShell window. This also needs to set the Buffer width also as they can't be different. Defaults to 120
+# @param config_window_height
+#   Sets the height of the PowerShell window. Defaults to 30
+# @param config_buffer_height
+#   Sets how far you can vertically scroll the window to see previous commands and output. Defaults to 9001
+# @param config_background_color
+#   Sets the color of the window behind the text. Defaults to 'Black'
+# @param config_foreground_color
+#   Sets the color of the foreground text color. Defaults to 'White'
 #
-# @example
+# @example Basic usage
 #   include powershell7
+#
+# @example Configuring window defaults
+#   class { 'powershell7':
+#     config_window_width     => 400,
+#     config_window_height    => 60,
+#     config_buffer_height    => 6000,
+#     config_background_color => 'Blue',
+#     config_foreground_color => 'White',
+#   }
+#
+# @example Using a different download location and version of the installer
+#   class {
+#     lts_file_name  => 'PowerShell-7.0.6-win-x64.msi',
+#     lts_source_url => 'https://myserver.internal.com/PowerShell/PowerShell-7.0.6-win-x64.msi',
+#   }
+#
 class powershell7 (
+  Pattern[/^[A-Z]$/] $os_letter,
   Stdlib::Absolutepath $download_dir,
   String $lts_file_name,
   Stdlib::HTTPUrl $lts_source_url,
@@ -47,6 +77,12 @@ class powershell7 (
   Integer[0,1] $enable_psremoting,
   Integer[0,1] $register_manifest,
   ENUM['Off','Default','LTS'] $powershell_updatecheck,
+  Integer $config_window_width,
+  Integer $config_window_height,
+  Integer $config_buffer_height,
+  Powershell7::Windowcolor $config_background_color,
+  Powershell7::Windowcolor $config_foreground_color,
+
 ) {
   contain powershell7::install
   contain powershell7::config
