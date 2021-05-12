@@ -61,7 +61,7 @@ application is available. This can be configured to `Off`, `Default` or `LTS`.
 The notification doesn't provide any capabilities to update PowerShell but just to notify only.
 ```
 class { 'powershell7':
-  'powershell_updatecheck' => 'LTS,
+  'powershell_updatecheck' => 'LTS',
 }
 ```
 
