@@ -34,11 +34,17 @@ jobs:
       env: PUPPET_GEM_VERSION="~> 6.0" CHECK=parallel_spec
       rvm: 2.5.7
       stage: spec
-    #-
-      #env: DEPLOY_TO_FORGE=yes
-      #stage: deploy
+    -
+      env: DEPLOY_TO_FORGE=yes
+      stage: deploy
 branches:
   only:
-    - master
+    - main
+    - /^v\d/
 notifications:
   email: false
+deploy:
+  provider: puppetforge
+  user: "n3snah"
+  password:
+    secure: "JB1PZcRdzz2v11tRd2JnhFqol7GT2fhf/aZwHQy6HC77Bhkvm5auLvbhAChR40V3SN9KYSg+ONQMl4Wyp5dsu/5r9ys4AIZyDfD/GhfYycGifFhE31jPcdG27IGtSSRc/VCFYd4BK5gi/jL+QNtp0j1smTVDuap+xqjvl8JD1XAT+AHAxMg6xCDjMXxS5sMtHrB0KgbGlVqBRG/1ia/+kTR3f2Q0yLkHgDycLpH51SZghEqBH5YHimQJtFMsCov4IfWA4jhPycMB/3L+bF23/pkPP1bKVZ73h7ufAzy78u+H213s/dYjMJeZQM3sULXmv28cylLBbgNZPrWqC7V7xi+hmPzF+osGRQFDsS2rylYXOOzC+4UL6liL83tzjrdlBuKQ3vTMxBK6XZgklOqxUP7s1IvptnizacFLNesSyV5oZHSYanGfvQonDIDPqXqX5ZdhiSfSVpWB5tqnrChj+p/XvwL3lk58LRgFvtnmYQA2JbBEOAGFvDQfFjMilVrqnIKn4BrWZWWV81Vmsdltfbb6XqWpKXG6xzfX53lYkA6PfVRW2omJY0I7wAICK6WNhsammiRyXGOx4jvnUyBqVBLwBQCxGNLTbn1/O5Uug8yM/gQmfw7UR5+NNZiKTHVLZMFgcdL61lF0NnrBlMioadJdG6kvf1uRwZy+de3dKAY="
