@@ -19,7 +19,7 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "ubuntu",
+      "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "20.04",
         "18.04"
@@ -30,7 +30,7 @@
       "operatingsystemrelease": [
         "2019",
         "2016",
-        "2012 r2",
+        "2012 R2",
         "2012"
       ]
     }
