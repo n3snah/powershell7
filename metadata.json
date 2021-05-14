@@ -19,6 +19,13 @@
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "ubuntu",
+      "operatingsystemrelease": [
+        "20.04",
+        "18.04"
+      ]
+    },
+    {
       "operatingsystem": "windows",
       "operatingsystemrelease": [
         "2019",
