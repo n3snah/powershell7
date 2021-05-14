@@ -63,10 +63,10 @@
 #   }
 #
 class powershell7 (
-  Pattern[/^[A-Z]$/] $os_letter,
+  Optional[Pattern[/^[A-Z]$/]] $os_letter                = undef,
   Stdlib::Absolutepath $download_dir,
-  String $lts_file_name,
-  Stdlib::HTTPUrl $lts_source_url,
+  Optional[String] $lts_file_name                        = undef,
+  Optional[Stdlib::HTTPUrl] $lts_source_url              = undef,
   String $stable_file_name,
   Stdlib::HTTPUrl $stable_source_url,
   String $preview_file_name,
