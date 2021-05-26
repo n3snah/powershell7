@@ -63,10 +63,7 @@
 #   }
 #
 class powershell7 (
-  Optional[Pattern[/^[A-Z]$/]] $os_letter                = undef,
   Stdlib::Absolutepath $download_dir,
-  Optional[String] $lts_file_name                        = undef,
-  Optional[Stdlib::HTTPUrl] $lts_source_url              = undef,
   String $stable_file_name,
   Stdlib::HTTPUrl $stable_source_url,
   String $preview_file_name,
@@ -82,6 +79,9 @@ class powershell7 (
   Integer $config_buffer_height,
   Powershell7::Windowcolor $config_background_color,
   Powershell7::Windowcolor $config_foreground_color,
+  Optional[Pattern[/^[A-Z]$/]] $os_letter                = undef,
+  Optional[String] $lts_file_name                        = undef,
+  Optional[Stdlib::HTTPUrl] $lts_source_url              = undef,
 
 ) {
   contain powershell7::install

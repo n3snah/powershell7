@@ -5,11 +5,13 @@ require 'spec_helper'
 describe 'powershell7', type: :class do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let :facts do
+      let(:facts) do
         os_facts
       end
 
-      it { is_expected.to compile }
+      it do
+        is_expected.to compile
+      end
 
       it do
         is_expected.to contain_class('powershell7::install')
