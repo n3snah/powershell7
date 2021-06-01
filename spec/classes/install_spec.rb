@@ -19,7 +19,13 @@ describe 'powershell7::install', type: :class do
         it do
           is_expected.to contain_class('powershell7::install::windows')
         end
+      when 'Debian'
+        it do
+          is_expected.to contain_class('powershell7::install::debian')
+        end
       else
+        is_expected.not_to contain_class('powershell7::install::windows')
+        is_expected.not_to contain_class('powershell7::install::debian')
       end
     end
   end

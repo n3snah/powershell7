@@ -419,7 +419,6 @@ describe 'powershell7', type: :class do
             is_expected.not_to compile
           end
         end
-      else
       end
     end
   end

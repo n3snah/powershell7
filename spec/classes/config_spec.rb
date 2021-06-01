@@ -56,8 +56,6 @@ describe 'powershell7::config' do
           is_expected.to contain_file('C:/Program Files/PowerShell/7/Microsoft.PowerShell_profile.ps1')
             .with_content(%r{\$shell\.ForegroundColor = \"White\"})
         end
-      else
-      # add tests here to ensure they are not present
       end
     end
   end

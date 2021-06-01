@@ -11,7 +11,7 @@ describe 'powershell7::install::windows', type: :class do
       it { is_expected.to compile }
 
       it do
-          is_expected to.contain_class('powershell7::install::windows')
+        is_expected.to contain_class('powershell7::install::windows')
       end
 
       case os_facts[:osfamily]
@@ -22,14 +22,6 @@ describe 'powershell7::install::windows', type: :class do
 
         it do
           is_expected.to contain_exec('powershell7-install')
-        end
-      else
-        it do
-          is_expected.not_to contain_file('powershell7-download')
-        end
-
-        it do
-          is_expected.not_to contain_exec('powershell7-install')
         end
       end
     end
