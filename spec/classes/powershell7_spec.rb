@@ -408,7 +408,7 @@ describe 'powershell7', type: :class do
           end
         end
 
-        context 'with_config_foreground_color => "black" (lowercase)' do
+        context 'with config_foreground_color => "black" (lowercase)' do
           let :params do
             {
               config_foreground_color: 'black'
@@ -417,6 +417,26 @@ describe 'powershell7', type: :class do
 
           it do
             is_expected.not_to compile
+          end
+        end
+      when 'Ubuntu'
+        context 'with apt_repository => https://packages.microsoft.com/ubuntu/16.04/prod' do
+          let :params do
+            {
+              apt_repository: 'https://packages.microsoft.com/ubuntu/16.04/prod'
+            }
+          end
+
+          it do
+            is_expected.to contain_apt__source('microsoft-prod').with(
+              'location' => 'https://packages.microsoft.com/ubuntu/16.04/prod',
+              'repos' => 'main',
+              'key' => {
+                'id' => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+                'server' => 'pgp.mit.edu',
+              },
+              'notify' => 'Exec[apt_update]'
+            )
           end
         end
       end

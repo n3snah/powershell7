@@ -30,7 +30,7 @@
 # @param config_foreground_color
 #   Sets the color of the foreground text color. Defaults to 'White'
 # @param apt_repository
-#   Sets the Apt Repository location for downloading PowerShell on Linux
+#   Sets the Apt Repository location for downloading PowerShell on Linux. Defaults to official Microsoft repository
 # @param download_dir
 #   The directory where the downloaded installer is placed.
 # @param lts_file_name
