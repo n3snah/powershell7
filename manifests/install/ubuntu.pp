@@ -10,23 +10,9 @@ class powershell7::install::ubuntu {
   case $facts['operatingsystem'] {
     'Ubuntu': {
       include apt
-      $download_path = '/tmp/packages-microsoft-prod.deb'
-
-      #file { 'packages-microsoft-prod.deb':
-      #  ensure => file,
-      #  path   => $download_path,
-      #  source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb'
-      #}
-
-      #package {'packages-microsoft-prod.deb':
-      #  ensure   => 'installed',
-      #  source   => $download_path,
-      #  provider => 'dpkg',
-      #  notify   => Exec['apt_update']
-      #}
 
       apt::source {'microsoft-prod':
-        location => 'https://packages.microsoft.com/ubuntu/18.04/prod',
+        location => $powershell7::apt_repository,
         repos    => 'main',
         key      => {
           id     => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',

@@ -16,21 +16,33 @@ describe 'powershell7::install::ubuntu', type: :class do
 
       case os_facts[:operatingsystem]
       when 'Ubuntu'
-        #it do
-        #  is_expected.to contain_file('packages-microsoft-prod.deb').with(
-        #    'ensure' => 'file',
-        #    'path' => '/tmp/packages-microsoft-prod.deb',
-        #    'source' => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
-        #  )
-        #end
-        #it do
-        #  is_expected.to contain_package('packages-microsoft-prod.deb').with(
-        #    'ensure' => 'installed',
-        #    'source' => '/tmp/packages-microsoft-prod.deb',
-        #    'provider' => 'dpkg',
-        #    'notify' => 'Exec[apt_update]',
-        #  )
-        #end
+        case os_facts[:operatingsystemmajrelease]
+        when '18.04'
+          it do
+            is_expected.to contain_apt__source('microsoft-prod').with(
+              'location' => 'https://packages.microsoft.com/ubuntu/18.04/prod',
+              'repos' => 'main',
+              'key' => {
+                'id' => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+                'server' => 'pgp.mit.edu',
+              },
+              'notify' => 'Exec[apt_update]'
+            )
+          end
+        when '20.04'
+          it do
+            is_expected.to contain_apt__source('microsoft-prod').with(
+              'location' => 'https://packages.microsoft.com/ubuntu/20.04/prod',
+              'repos' => 'main',
+              'key' => {
+                'id' => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+                'server' => 'pgp.mit.edu',
+              },
+              'notify' => 'Exec[apt_update]'
+            )
+          end
+        end
+
         it do
           is_expected.to contain_exec('apt_update')
         end
