@@ -1,4 +1,4 @@
-# powershell7::install::debian
+# powershell7::install::ubuntu
 #
 # @summary Install PowerShell 7 on Ubuntu systems
 #
@@ -6,5 +6,5 @@
 #
 # @api private
 #
-class powershell7::install::debian {
+class powershell7::install::ubuntu {
 }

@@ -6,7 +6,7 @@
 # @api private
 #
 class powershell7::config {
-  case $facts['osfamily'] {
+  case $facts['operatingsystem'] {
     'windows': {
       registry_value { 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK':
         ensure => present,

@@ -8,12 +8,12 @@
 #
 class powershell7::install {
 
-  case $facts['osfamily'] {
+  case $facts['operatingsystem'] {
     'windows': {
       include powershell7::install::windows
     }
-    'Debian': {
-      include powershell7::install::debian
+    'Ubuntu': {
+      include powershell7::install::ubuntu
     }
     default: {}
   }

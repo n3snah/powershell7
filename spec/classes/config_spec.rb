@@ -14,7 +14,7 @@ describe 'powershell7::config' do
         is_expected.to contain_class('powershell7::config')
       end
 
-      case os_facts[:osfamily]
+      case os_facts[:operatingsystem]
       when 'windows'
         it do
           is_expected.to contain_registry_value('HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\POWERSHELL_UPDATECHECK')

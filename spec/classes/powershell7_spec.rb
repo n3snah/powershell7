@@ -21,7 +21,7 @@ describe 'powershell7', type: :class do
         is_expected.to contain_class('powershell7::config')
       end
 
-      case os_facts[:osfamily]
+      case os_facts[:operatingsystem]
       when 'windows'
         context 'with defaults and release_type => lts' do
           let :params do

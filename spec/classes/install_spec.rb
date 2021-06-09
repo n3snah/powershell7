@@ -14,18 +14,18 @@ describe 'powershell7::install', type: :class do
         is_expected.to contain_class('powershell7::install')
       end
 
-      case os_facts[:osfamily]
+      case os_facts[:operatingsystem]
       when 'windows'
         it do
           is_expected.to contain_class('powershell7::install::windows')
         end
-      when 'Debian'
+      when 'Ubuntu'
         it do
-          is_expected.to contain_class('powershell7::install::debian')
+          is_expected.to contain_class('powershell7::install::ubuntu')
         end
       else
         is_expected.not_to contain_class('powershell7::install::windows')
-        is_expected.not_to contain_class('powershell7::install::debian')
+        is_expected.not_to contain_class('powershell7::install::ubuntu')
       end
     end
   end

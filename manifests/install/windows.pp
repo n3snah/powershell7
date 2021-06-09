@@ -14,7 +14,7 @@ class powershell7::install::windows {
   $enable_psremoting = $powershell7::enable_psremoting
   $register_manifest = $powershell7::register_manifest
 
-  case $facts['osfamily'] {
+  case $facts['operatingsystem'] {
     'windows': {
       case $powershell7::release_type {
         'lts': {
