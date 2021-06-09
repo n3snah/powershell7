@@ -3,5 +3,5 @@
 ---
 fixtures:
   forge_modules:
-    stdlib: "puppetlabs/stdlib"
-    registry: "puppetlabs/registry"
+    stdlib: 'puppetlabs/stdlib'
+    registry: 'puppetlabs/registry'
