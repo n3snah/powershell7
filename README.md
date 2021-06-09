@@ -7,6 +7,7 @@ This module has been developed to manage the installation of PowerShell 7.
 
 1. [Description](#description)
 1. [Setup - The basics of getting started with powershell7](#setup)
+    * [Software Prerequisites](#software-prerequisites)
     * [Beginning with powershell7](#beginning-with-powershell7)
 1. [Usage - Configuration options and additional functionality](#usage)
     * [Install and Enable PowerShell 7](#install-and-enable-powershell-7)
@@ -14,6 +15,7 @@ This module has been developed to manage the installation of PowerShell 7.
     * [Disable PS Remoting](#disable-ps-remoting)
     * [Change Update Notification Settings](#change-update-notification-settings)
     * [Configuring PowerShell Window Settings](#configuring-powerShell-window-settings)
+    * [PowerShell Windows Colors](#powershell-window-colors)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
@@ -24,11 +26,17 @@ version of PowerShell brings many new features, cmdlets and includes a number of
 bugfixes.
 
 ## Setup
+### Software Prerequisites
+On Ubuntu, this module assumes that you have the following sofware either already
+installed or in a manifest to install as this will attempt to download files from
+HTTPS:
+1. apt-transport-https
+1. software-properties-common
 
 ### Beginning with powershell7
 
 `include powershell7` is enough to get started and have PowerShell 7 installed on
-your windows server.
+your Windows or Linux system.
 
 ## Usage
 
@@ -99,9 +107,6 @@ PowerShell 7 only allows certain colors for the background and the foreground. T
 * White
 
 ## Limitations
-
-Currently this has only been designed and tested for Windows. PowerShell 7 on
-Linux is not yet supported in this module.
 
 Due to using the Stdlib::Absolutepath and the way that the code is structured. You cannot have `download_dir` set to `C:\`.
 This would cause the path to end up something like `C:\\file.msi` which wouldn't be a valid windows path.

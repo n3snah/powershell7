@@ -11,22 +11,16 @@ class powershell7::install::ubuntu {
     'Ubuntu': {
       include apt
       $download_path = '/tmp/packages-microsoft-prod.deb'
-      # Update the list of products
-      # sudo apt-get update
 
-      # require the following packages
-      # apt-transport-https software-properties-common
-
-      # Download the following file
-      #file { 'packages-microsoft-prod.deb':
-      #  ensure => file,
-      #  path   => $download_path,
-      #  source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb'
-      #}
+      file { 'packages-microsoft-prod.deb':
+        ensure => file,
+        path   => $download_path,
+        source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb'
+      }
 
       package {'packages-microsoft-prod.deb':
         ensure   => 'installed',
-        source   => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
+        source   => $download_path,
         provider => 'dpkg',
         notify   => Exec['apt_update']
       }
