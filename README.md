@@ -16,6 +16,7 @@ This module has been developed to manage the installation of PowerShell 7.
     * [Change Update Notification Settings](#change-update-notification-settings)
     * [Configuring PowerShell Window Settings](#configuring-powerShell-window-settings)
     * [PowerShell Windows Colors](#powershell-window-colors)
+    * [PowerShell release types](#powershell-release-types)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
@@ -106,7 +107,23 @@ PowerShell 7 only allows certain colors for the background and the foreground. T
 * Yellow
 * White
 
+### PowerShell release types
+There are 3 versions of powershell which can be installed onto any system.
+1. lts - Long Term Support which is aimed at consumers who which to have very stable and long supported releases
+1. preview - which is aimed at the more bleeding-edge type releases. Not usually ideal for enterprises.
+1. stable - releases where they bring in new features more often than LTS but deemed more stable than preview.
+
+```
+class { 'powershell7':
+  'release_type => 'lts'
+}
+```
+
 ## Limitations
+
+Currently if you have PowerShell installed on Ubuntu and you decide to change the release type. Puppet is unable to uninstall
+the current package and install the new package. If you run a `apt-remove <packagename>` puppets next run should succeed. A
+future task will be made available to handle this.
 
 Due to using the Stdlib::Absolutepath and the way that the code is structured. You cannot have `download_dir` set to `C:\`.
 This would cause the path to end up something like `C:\\file.msi` which wouldn't be a valid windows path.
