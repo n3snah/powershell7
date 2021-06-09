@@ -16,28 +16,28 @@ describe 'powershell7::install::ubuntu', type: :class do
 
       case os_facts[:operatingsystem]
       when 'Ubuntu'
-        it do
-          is_expected.to contain_file('packages-microsoft-prod.deb').with(
-            'ensure' => 'file',
-            'path' => '/tmp/packages-microsoft-prod.deb',
-            'source' => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
-          )
-        end
-        it do
-          is_expected.to contain_package('packages-microsoft-prod.deb').with(
-            'ensure' => 'installed',
-            'source' => '/tmp/packages-microsoft-prod.deb',
-            'provider' => 'dpkg',
-            'notify' => 'Exec[apt_update]',
-          )
-        end
+        #it do
+        #  is_expected.to contain_file('packages-microsoft-prod.deb').with(
+        #    'ensure' => 'file',
+        #    'path' => '/tmp/packages-microsoft-prod.deb',
+        #    'source' => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
+        #  )
+        #end
+        #it do
+        #  is_expected.to contain_package('packages-microsoft-prod.deb').with(
+        #    'ensure' => 'installed',
+        #    'source' => '/tmp/packages-microsoft-prod.deb',
+        #    'provider' => 'dpkg',
+        #    'notify' => 'Exec[apt_update]',
+        #  )
+        #end
         it do
           is_expected.to contain_exec('apt_update')
         end
         it do
           is_expected.to contain_package('powershell').with(
             'ensure' => 'present',
-            'require' => '[Package[packages-microsoft-prod.deb]{:name=>"packages-microsoft-prod.deb"}, Exec[apt_update]{:command=>"apt_update"}]',
+            'require' => 'Exec[apt_update]',
           )
         end
       end
