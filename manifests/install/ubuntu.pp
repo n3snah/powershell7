@@ -18,15 +18,15 @@ class powershell7::install::ubuntu {
       # apt-transport-https software-properties-common
 
       # Download the following file
-      #file { 'packages-microsoft-prod.deb':
-      #  ensure => file,
-      #  path   => $download_path,
-      #  source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb'
-      #}
+      file { 'packages-microsoft-prod.deb':
+        ensure => file,
+        path   => $download_path,
+        source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb'
+      }
 
       package {'packages-microsoft-prod.deb':
         ensure => 'installed',
-        source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
+        source => $download_path,
         notify => Exec['apt_update']
       }
 
