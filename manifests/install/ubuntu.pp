@@ -25,9 +25,10 @@ class powershell7::install::ubuntu {
       }
 
       package {'packages-microsoft-prod.deb':
-        ensure => 'installed',
-        source => $download_path,
-        notify => Exec['apt_update']
+        ensure   => 'installed',
+        source   => $download_path,
+        provider => 'dpkg',
+        notify   => Exec['apt_update']
       }
 
       # Enable the "universe" repositories

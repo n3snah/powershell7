@@ -27,6 +27,7 @@ describe 'powershell7::install::ubuntu', type: :class do
           is_expected.to contain_package('packages-microsoft-prod.deb').with(
             'ensure' => 'installed',
             'source' => '/tmp/packages-microsoft-prod.deb',
+            'provider' => 'dpkg',
             'notify' => 'Exec[apt_update]',
           )
         end
