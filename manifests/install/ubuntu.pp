@@ -11,7 +11,22 @@ class powershell7::install::ubuntu {
     'Ubuntu': {
       include apt
 
-      apt::source {'microsoft-prod':
+      case $powershell7::release_type {
+        'lts': {
+          $pkg_name = 'powershell-lts'
+        }
+        'stable': {
+          $pkg_name = 'powershell'
+        }
+        'preview': {
+          $pkg_name = 'powershell-preview'
+        }
+        default: {
+          $pkg_name = 'powershell'
+        }
+      }
+
+      apt::source { 'microsoft-prod':
         location => $powershell7::apt_repository,
         repos    => 'main',
         key      => {
@@ -21,7 +36,7 @@ class powershell7::install::ubuntu {
         notify   => Exec['apt_update']
       }
 
-      package {'powershell':
+      package { $pkg_name:
         ensure  => 'present',
         require => Exec['apt_update']
       }

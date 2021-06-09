@@ -439,6 +439,51 @@ describe 'powershell7', type: :class do
             )
           end
         end
+
+        context "with release_type => lts" do
+          let :params do
+            {
+              release_type: 'lts'
+            }
+          end
+
+          it do
+            is_expected.to contain_package('powershell-lts').with(
+              'ensure' => 'present',
+              'require' => 'Exec[apt_update]'
+            )
+          end
+        end
+
+        context "with release_type => preview" do
+          let :params do
+            {
+              release_type: 'preview'
+            }
+          end
+
+          it do
+            is_expected.to contain_package('powershell-preview').with(
+              'ensure' => 'present',
+              'require' => 'Exec[apt_update]'
+            )
+          end
+        end
+
+        context "with release_type => stable " do
+          let :params do
+            {
+              release_type: 'stable'
+            }
+          end
+
+          it do
+            is_expected.to contain_package('powershell').with(
+              'ensure' => 'present',
+              'require' => 'Exec[apt_update]'
+            )
+          end
+        end
       end
     end
   end
