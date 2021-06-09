@@ -25,8 +25,14 @@ class powershell7::install::ubuntu {
         notify   => Exec['apt_update']
       }
 
-      # Enable the "universe" repositories
-      # sudo add-apt-repository universe
+      apt::source {'microsoft-prod':
+        location => 'https://packages.microsoft.com/ubuntu/18.04/prod',
+        repos    => 'main',
+        key      => {
+          id     => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+          server => 'pgp.mit.edu'
+        }
+      }
 
       package {'powershell':
         ensure  => 'present',
