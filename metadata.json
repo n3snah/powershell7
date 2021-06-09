@@ -9,6 +9,10 @@
   "issues_url": "https://github.com/n3snah/powershell7/issues",
   "dependencies": [
     {
+      "name": "puppetlabs/apt",
+      "version_requirement": ">= 7.5.0 < 9.0.0"
+    },
+    {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.13.1 < 8.0.0"
     },
