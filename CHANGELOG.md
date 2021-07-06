@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Added: Added new parameter `apt_repository` for Ubuntu PowerShell package management.
 - Added: Many params in init.pp are now optional. Mainly because Linux would throw errors if they weren't defined.
 - Updated: Module has been updated to PDK v2.1.1
+- Updated: PowerShell Preview URL has been updated to 7.2.0 Preview 7
 
 **Bugfixes**
 - Fix: Fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
