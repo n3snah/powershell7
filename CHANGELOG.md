@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file.
 - Added: Many params in init.pp are now optional. Mainly because Linux would throw errors if they weren't defined.
 
 **Bugfixes**
-- Fix: fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
+- Fix: Fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
+- Fix: Added in missing Table of Contents link for `PowerShell Windows Colors`
 
 ## Release 0.3.0 (2021/05/13)
 
