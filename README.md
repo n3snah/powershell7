@@ -73,6 +73,7 @@ class { 'powershell7':
   'powershell_updatecheck' => 'LTS',
 }
 ```
+***This won't affect Linux installs at this time.***
 
 ### Configuring PowerShell Window Settings
 Default PowerShell 7 window behaviour can now be customized which includes changing the size of the
