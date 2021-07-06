@@ -1,0 +1,2 @@
+---
+powershell7::apt_repository: 'https://packages.microsoft.com/ubuntu/20.04/prod'

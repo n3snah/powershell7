@@ -7,6 +7,7 @@ This module has been developed to manage the installation of PowerShell 7.
 
 1. [Description](#description)
 1. [Setup - The basics of getting started with powershell7](#setup)
+    * [Software Prerequisites](#software-prerequisites)
     * [Beginning with powershell7](#beginning-with-powershell7)
 1. [Usage - Configuration options and additional functionality](#usage)
     * [Install and Enable PowerShell 7](#install-and-enable-powershell-7)
@@ -14,6 +15,8 @@ This module has been developed to manage the installation of PowerShell 7.
     * [Disable PS Remoting](#disable-ps-remoting)
     * [Change Update Notification Settings](#change-update-notification-settings)
     * [Configuring PowerShell Window Settings](#configuring-powerShell-window-settings)
+    * [PowerShell Windows Colors](#powershell-window-colors)
+    * [PowerShell release types](#powershell-release-types)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 
@@ -24,11 +27,20 @@ version of PowerShell brings many new features, cmdlets and includes a number of
 bugfixes.
 
 ## Setup
+### Software Prerequisites
+On Ubuntu, this module assumes that you have the following sofware is either already
+installed or in a manifest to install as this will attempt to download files from
+HTTPS:
+1. apt-transport-https
+1. software-properties-common
+
+Please refer to the `metadata.json` file for a list of required modules and their
+supported versions.
 
 ### Beginning with powershell7
 
 `include powershell7` is enough to get started and have PowerShell 7 installed on
-your windows server.
+your Windows or Linux system.
 
 ## Usage
 
@@ -64,6 +76,7 @@ class { 'powershell7':
   'powershell_updatecheck' => 'LTS',
 }
 ```
+***This won't affect Linux installs at this time.***
 
 ### Configuring PowerShell Window Settings
 Default PowerShell 7 window behaviour can now be customized which includes changing the size of the
@@ -98,10 +111,23 @@ PowerShell 7 only allows certain colors for the background and the foreground. T
 * Yellow
 * White
 
+### PowerShell release types
+There are 3 versions of powershell which can be installed onto any system.
+1. lts - Long Term Support which is aimed at consumers who which to have very stable and long supported releases
+1. preview - which is aimed at the more bleeding-edge type releases. Not usually ideal for enterprises.
+1. stable - releases where they bring in new features more often than LTS but deemed more stable than preview.
+
+```
+class { 'powershell7':
+  'release_type => 'lts'
+}
+```
+
 ## Limitations
 
-Currently this has only been designed and tested for Windows. PowerShell 7 on
-Linux is not yet supported in this module.
+Currently if you have PowerShell installed on Ubuntu and you decide to change the release type. Puppet is unable to uninstall
+the current package and install the new package. If you run a `apt-remove <packagename>` puppets next run should succeed. A
+future task will be made available to handle this.
 
 Due to using the Stdlib::Absolutepath and the way that the code is structured. You cannot have `download_dir` set to `C:\`.
 This would cause the path to end up something like `C:\\file.msi` which wouldn't be a valid windows path.
