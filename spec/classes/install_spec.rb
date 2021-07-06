@@ -24,8 +24,12 @@ describe 'powershell7::install', type: :class do
           is_expected.to contain_class('powershell7::install::ubuntu')
         end
       else
-        is_expected.not_to contain_class('powershell7::install::windows')
-        is_expected.not_to contain_class('powershell7::install::ubuntu')
+        it do
+          is_expected.not_to contain_class('powershell7::install::windows')
+        end
+        it do
+          is_expected.not_to contain_class('powershell7::install::ubuntu')
+        end
       end
     end
   end
