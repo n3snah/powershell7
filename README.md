@@ -28,11 +28,14 @@ bugfixes.
 
 ## Setup
 ### Software Prerequisites
-On Ubuntu, this module assumes that you have the following sofware either already
+On Ubuntu, this module assumes that you have the following sofware is either already
 installed or in a manifest to install as this will attempt to download files from
 HTTPS:
 1. apt-transport-https
 1. software-properties-common
+
+Please refer to the `metadata.json` file for a list of required modules and their
+supported versions.
 
 ### Beginning with powershell7
 
