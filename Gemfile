@@ -60,3 +60,6 @@ extra_gemfiles.each do |gemfile|
   end
 end
 # vim: syntax=ruby
+
+# Code Coverage Reports
+gem 'coveralls', require: false
