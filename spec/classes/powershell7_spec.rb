@@ -221,7 +221,7 @@ describe 'powershell7', type: :class do
             is_expected.to contain_file('powershell7-download').with(
               'ensure' => 'file',
               'path' => 'C:\\Windows\\Temp\\PowerShell-7.2.0-win-x64.msi',
-              'source' => 'https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.4/PowerShell-7.2.0-preview.4-win-x64.msi',
+              'source' => 'https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.7/PowerShell-7.2.0-preview.7-win-x64.msi',
             )
           end
 
