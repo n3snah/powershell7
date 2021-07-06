@@ -1,5 +1,6 @@
 # powershell7
 [![Build Status](https://travis-ci.com/n3snah/powershell7.svg?branch=master)](https://travis-ci.com/n3snah/powershell7)
+[![Coverage Status](https://coveralls.io/repos/github/n3snah/powershell7/badge.svg?branch=master)](https://coveralls.io/github/n3snah/powershell7?branch=master)
 
 This module has been developed to manage the installation of PowerShell 7.
 
