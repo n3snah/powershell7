@@ -26,7 +26,7 @@ describe 'powershell7::install::ubuntu', type: :class do
                 'id' => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
                 'server' => 'pgp.mit.edu',
               },
-              'notify' => 'Exec[apt_update]'
+              'notify' => 'Exec[apt_update]',
             )
           end
         when '20.04'
@@ -38,7 +38,7 @@ describe 'powershell7::install::ubuntu', type: :class do
                 'id' => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
                 'server' => 'pgp.mit.edu',
               },
-              'notify' => 'Exec[apt_update]'
+              'notify' => 'Exec[apt_update]',
             )
           end
         end

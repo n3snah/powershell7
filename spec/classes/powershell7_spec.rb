@@ -435,12 +435,12 @@ describe 'powershell7', type: :class do
                 'id' => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
                 'server' => 'pgp.mit.edu',
               },
-              'notify' => 'Exec[apt_update]'
+              'notify' => 'Exec[apt_update]',
             )
           end
         end
 
-        context "with release_type => lts" do
+        context 'with release_type => lts' do
           let :params do
             {
               release_type: 'lts'
@@ -450,12 +450,12 @@ describe 'powershell7', type: :class do
           it do
             is_expected.to contain_package('powershell-lts').with(
               'ensure' => 'present',
-              'require' => 'Exec[apt_update]'
+              'require' => 'Exec[apt_update]',
             )
           end
         end
 
-        context "with release_type => preview" do
+        context 'with release_type => preview' do
           let :params do
             {
               release_type: 'preview'
@@ -465,12 +465,12 @@ describe 'powershell7', type: :class do
           it do
             is_expected.to contain_package('powershell-preview').with(
               'ensure' => 'present',
-              'require' => 'Exec[apt_update]'
+              'require' => 'Exec[apt_update]',
             )
           end
         end
 
-        context "with release_type => stable " do
+        context 'with release_type => stable' do
           let :params do
             {
               release_type: 'stable'
@@ -480,7 +480,7 @@ describe 'powershell7', type: :class do
           it do
             is_expected.to contain_package('powershell').with(
               'ensure' => 'present',
-              'require' => 'Exec[apt_update]'
+              'require' => 'Exec[apt_update]',
             )
           end
         end
