@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 
 **Features**
 - Added: Support for installing PowerShell 7 on Ubuntu 18.04 and Ubuntu 20.04 systems.
+- Added: Added information to readme to document any requirements.
+- Added: Added new parameter `apt_repository` for Ubuntu PowerShell package management.
+- Added: Many params in init.pp are now optional. Mainly because Linux would throw errors if they weren't defined.
+
+**Bugfixes**
+- fixed: fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
 
 ## Release 0.3.0 (2021/05/13)
 
