@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 - Added: Many params in init.pp are now optional. Mainly because Linux would throw errors if they weren't defined.
 
 **Bugfixes**
-- fixed: fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
+- Fix: fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
 
 ## Release 0.3.0 (2021/05/13)
 
@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file.
 - Added: New Data Type Alias `Powershell7::Windowcolor` to restrict Window Background/Foreground to specific colors
 
 **Bugfixes**
-- fixed: Removed hardcoded Windows paths from powershell7::install exec resource
+- Fix: Removed hardcoded Windows paths from powershell7::install exec resource
 
 ## Release 0.2.0 (2021/04/07)
 
