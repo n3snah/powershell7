@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Release 0.4.0 (Unreleased)
+## Release 0.4.0 (2021/10/19)
 
 **Features**
 - Added: Support for installing PowerShell 7 on Ubuntu 18.04 and Ubuntu 20.04 systems.
