@@ -11,11 +11,25 @@ describe 'powershell7::install', type: :class do
       it { is_expected.to compile }
 
       it do
-        is_expected.to contain_file('powershell7-download')
+        is_expected.to contain_class('powershell7::install')
       end
 
-      it do
-        is_expected.to contain_exec('powershell7-install')
+      case os_facts[:operatingsystem]
+      when 'windows'
+        it do
+          is_expected.to contain_class('powershell7::install::windows')
+        end
+      when 'Ubuntu'
+        it do
+          is_expected.to contain_class('powershell7::install::ubuntu')
+        end
+      else
+        it do
+          is_expected.not_to contain_class('powershell7::install::windows')
+        end
+        it do
+          is_expected.not_to contain_class('powershell7::install::ubuntu')
+        end
       end
     end
   end

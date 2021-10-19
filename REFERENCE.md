@@ -13,7 +13,9 @@
 #### Private Classes
 
 * `powershell7::config`: Configuration options for Powershell 7 once installed
-* `powershell7::install`: Install Powershell 7
+* `powershell7::install`: Install PowerShell 7
+* `powershell7::install::ubuntu`: Install PowerShell 7 on Ubuntu systems
+* `powershell7::install::windows`: Install Powershell 7 on Windows systems
 
 ### Data types
 
@@ -63,13 +65,6 @@ class {
 The following parameters are available in the `powershell7` class:
 
 * [`os_letter`](#os_letter)
-* [`download_dir`](#download_dir)
-* [`lts_file_name`](#lts_file_name)
-* [`lts_source_url`](#lts_source_url)
-* [`stable_file_name`](#stable_file_name)
-* [`stable_source_url`](#stable_source_url)
-* [`preview_file_name`](#preview_file_name)
-* [`preview_source_url`](#preview_source_url)
 * [`release_type`](#release_type)
 * [`add_explorer_context_menu_openpowershell`](#add_explorer_context_menu_openpowershell)
 * [`add_file_context_menu_runpowershell`](#add_file_context_menu_runpowershell)
@@ -81,54 +76,22 @@ The following parameters are available in the `powershell7` class:
 * [`config_buffer_height`](#config_buffer_height)
 * [`config_background_color`](#config_background_color)
 * [`config_foreground_color`](#config_foreground_color)
+* [`apt_repository`](#apt_repository)
+* [`download_dir`](#download_dir)
+* [`lts_file_name`](#lts_file_name)
+* [`lts_source_url`](#lts_source_url)
+* [`stable_file_name`](#stable_file_name)
+* [`stable_source_url`](#stable_source_url)
+* [`preview_file_name`](#preview_file_name)
+* [`preview_source_url`](#preview_source_url)
 
 ##### <a name="os_letter"></a>`os_letter`
 
-Data type: `Pattern[/^[A-Z]$/]`
+Data type: `Optional[Pattern[/^[A-Z]$/]]`
 
 The Letter of the disk which has the Windows folder. Defaults to C
 
-##### <a name="download_dir"></a>`download_dir`
-
-Data type: `Stdlib::Absolutepath`
-
-The directory where the downloaded installer is placed.
-
-##### <a name="lts_file_name"></a>`lts_file_name`
-
-Data type: `String`
-
-The name of the LTS PowerShell installer
-
-##### <a name="lts_source_url"></a>`lts_source_url`
-
-Data type: `Stdlib::HTTPUrl`
-
-The internet URL for the LTS Powershell Download
-
-##### <a name="stable_file_name"></a>`stable_file_name`
-
-Data type: `String`
-
-The name of the Stable PowerShell installer
-
-##### <a name="stable_source_url"></a>`stable_source_url`
-
-Data type: `Stdlib::HTTPUrl`
-
-The internet URL for the Stable Powershell Download
-
-##### <a name="preview_file_name"></a>`preview_file_name`
-
-Data type: `String`
-
-The name of the Preview PowerShell installer
-
-##### <a name="preview_source_url"></a>`preview_source_url`
-
-Data type: `Stdlib::HTTPUrl`
-
-The internet URL for the Preview Powershell Download
+Default value: ``undef``
 
 ##### <a name="release_type"></a>`release_type`
 
@@ -195,6 +158,70 @@ Sets the color of the window behind the text. Defaults to 'Black'
 Data type: `Powershell7::Windowcolor`
 
 Sets the color of the foreground text color. Defaults to 'White'
+
+##### <a name="apt_repository"></a>`apt_repository`
+
+Data type: `Optional[Stdlib::HTTPUrl]`
+
+Sets the Apt Repository location for downloading PowerShell on Linux. Defaults to official Microsoft repository
+
+Default value: ``undef``
+
+##### <a name="download_dir"></a>`download_dir`
+
+Data type: `Optional[Stdlib::Absolutepath]`
+
+The directory where the downloaded installer is placed.
+
+Default value: ``undef``
+
+##### <a name="lts_file_name"></a>`lts_file_name`
+
+Data type: `Optional[String]`
+
+The name of the LTS PowerShell installer
+
+Default value: ``undef``
+
+##### <a name="lts_source_url"></a>`lts_source_url`
+
+Data type: `Optional[Stdlib::HTTPUrl]`
+
+The internet URL for the LTS Powershell Download
+
+Default value: ``undef``
+
+##### <a name="stable_file_name"></a>`stable_file_name`
+
+Data type: `Optional[String]`
+
+The name of the Stable PowerShell installer
+
+Default value: ``undef``
+
+##### <a name="stable_source_url"></a>`stable_source_url`
+
+Data type: `Optional[Stdlib::HTTPUrl]`
+
+The internet URL for the Stable Powershell Download
+
+Default value: ``undef``
+
+##### <a name="preview_file_name"></a>`preview_file_name`
+
+Data type: `Optional[String]`
+
+The name of the Preview PowerShell installer
+
+Default value: ``undef``
+
+##### <a name="preview_source_url"></a>`preview_source_url`
+
+Data type: `Optional[Stdlib::HTTPUrl]`
+
+The internet URL for the Preview Powershell Download
+
+Default value: ``undef``
 
 ## Data types
 

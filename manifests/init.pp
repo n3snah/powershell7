@@ -7,20 +7,6 @@
 #
 # @param os_letter
 #   The Letter of the disk which has the Windows folder. Defaults to C
-# @param download_dir
-#   The directory where the downloaded installer is placed.
-# @param lts_file_name
-#   The name of the LTS PowerShell installer
-# @param lts_source_url
-#   The internet URL for the LTS Powershell Download
-# @param stable_file_name
-#   The name of the Stable PowerShell installer
-# @param stable_source_url
-#   The internet URL for the Stable Powershell Download
-# @param preview_file_name
-#   The name of the Preview PowerShell installer
-# @param preview_source_url
-#   The internet URL for the Preview Powershell Download
 # @param release_type
 #   Defines which PowerShell release type to be installed. Defaults to stable
 # @param add_explorer_context_menu_openpowershell
@@ -43,6 +29,22 @@
 #   Sets the color of the window behind the text. Defaults to 'Black'
 # @param config_foreground_color
 #   Sets the color of the foreground text color. Defaults to 'White'
+# @param apt_repository
+#   Sets the Apt Repository location for downloading PowerShell on Linux. Defaults to official Microsoft repository
+# @param download_dir
+#   The directory where the downloaded installer is placed.
+# @param lts_file_name
+#   The name of the LTS PowerShell installer
+# @param lts_source_url
+#   The internet URL for the LTS Powershell Download
+# @param stable_file_name
+#   The name of the Stable PowerShell installer
+# @param stable_source_url
+#   The internet URL for the Stable Powershell Download
+# @param preview_file_name
+#   The name of the Preview PowerShell installer
+# @param preview_source_url
+#   The internet URL for the Preview Powershell Download
 #
 # @example Basic usage
 #   include powershell7
@@ -63,14 +65,6 @@
 #   }
 #
 class powershell7 (
-  Pattern[/^[A-Z]$/] $os_letter,
-  Stdlib::Absolutepath $download_dir,
-  String $lts_file_name,
-  Stdlib::HTTPUrl $lts_source_url,
-  String $stable_file_name,
-  Stdlib::HTTPUrl $stable_source_url,
-  String $preview_file_name,
-  Stdlib::HTTPUrl $preview_source_url,
   ENUM['lts','stable','preview'] $release_type,
   Integer[0,1] $add_explorer_context_menu_openpowershell,
   Integer[0,1] $add_file_context_menu_runpowershell,
@@ -82,6 +76,15 @@ class powershell7 (
   Integer $config_buffer_height,
   Powershell7::Windowcolor $config_background_color,
   Powershell7::Windowcolor $config_foreground_color,
+  Optional[Stdlib::HTTPUrl] $apt_repository              = undef,
+  Optional[Stdlib::Absolutepath] $download_dir           = undef,
+  Optional[String] $stable_file_name                     = undef,
+  Optional[Stdlib::HTTPUrl] $stable_source_url           = undef,
+  Optional[String] $preview_file_name                    = undef,
+  Optional[Stdlib::HTTPUrl] $preview_source_url          = undef,
+  Optional[Pattern[/^[A-Z]$/]] $os_letter                = undef,
+  Optional[String] $lts_file_name                        = undef,
+  Optional[Stdlib::HTTPUrl] $lts_source_url              = undef,
 
 ) {
   contain powershell7::install

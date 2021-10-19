@@ -2,7 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
-## Release 0.3.0
+## Release 0.4.0 (2021/10/19)
+
+**Features**
+- Added: Support for installing PowerShell 7 on Ubuntu 18.04 and Ubuntu 20.04 systems.
+- Added: Added information to readme to document any requirements.
+- Added: Added new parameter `apt_repository` for Ubuntu PowerShell package management.
+- Added: Many params in init.pp are now optional. Mainly because Linux would throw errors if they weren't defined.
+- Added: Code coverage reports for RSPEC and Travis CI.
+- Updated: Module has been updated to PDK v2.1.1.
+- Updated: PowerShell Preview URL has been updated to 7.2.0 Preview 7
+- Updated: REFERENCE.md has been regenerated via `puppet strings` to account for new changes for Ubuntu support.
+
+**Bugfixes**
+- Fix: Fixed case with `Windows Server 2012 R2` as it wasn't testing correctly.
+- Fix: Added in missing Table of Contents link for `PowerShell Windows Colors`.
+- Fix: Deploy stage has been set to `master` instead of `main`.
+
+## Release 0.3.0 (2021/05/13)
 
 **Features**
 - Added: New file REFERENCE.md which is viewable on the forge.
@@ -13,7 +30,7 @@ All notable changes to this project will be documented in this file.
 - Added: New Data Type Alias `Powershell7::Windowcolor` to restrict Window Background/Foreground to specific colors
 
 **Bugfixes**
-- fixed: Removed hardcoded Windows paths from powershell7::install exec resource
+- Fix: Removed hardcoded Windows paths from powershell7::install exec resource
 
 ## Release 0.2.0 (2021/04/07)
 
