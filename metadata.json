@@ -1,6 +1,6 @@
 {
   "name": "n3snah-powershell7",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Ross Hansen",
   "summary": "Puppet Module to manage Powershell 7",
   "license": "Apache-2.0",
